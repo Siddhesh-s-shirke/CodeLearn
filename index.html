@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeLearn - An interactive educational platform for practicing coding problems">
+    <title>CodeLearn - Learn to Code by Practicing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <h1>CodeLearn</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#problems" class="nav-link">Problems</a></li>
+                    <li><a href="#learn" class="nav-link">Learn</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Problem Display Section -->
+        <section class="problem-section">
+            <div class="problem-header">
+                <h2 id="problem-title">Problem Title</h2>
+                <div class="problem-meta">
+                    <span class="difficulty easy" id="problem-difficulty">Easy</span>
+                    <span class="problem-id" id="problem-id">#1</span>
+                </div>
+            </div>
+
+            <div class="problem-content">
+                <div class="problem-description">
+                    <h3>Description</h3>
+                    <div id="problem-description-text" class="description-text">
+                        <p>Load a problem to start coding...</p>
+                    </div>
+                </div>
+
+                <div class="problem-examples">
+                    <h3>Examples</h3>
+                    <div id="examples-container" class="examples-container">
+                        <div class="example">
+                            <div class="example-header">
+                                <span class="example-label">Example 1</span>
+                            </div>
+                            <div class="example-content">
+                                <div class="example-input">
+                                    <strong>Input:</strong>
+                                    <pre id="example-1-input">input</pre>
+                                </div>
+                                <div class="example-output">
+                                    <strong>Output:</strong>
+                                    <pre id="example-1-output">output</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-constraints">
+                    <h3>Constraints</h3>
+                    <ul id="constraints-list">
+                        <li>Load a problem to view constraints</li>
+                    </ul>
+                </div>
+
+                <div class="problem-notes">
+                    <h3>Notes</h3>
+                    <div id="problem-notes-text">
+                        <p>Additional notes will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Editor Section -->
+        <section class="editor-section">
+            <!-- Language Selector -->
+            <div class="editor-header">
+                <div class="language-selector">
+                    <label for="language-dropdown">Language:</label>
+                    <select id="language-dropdown" class="language-select">
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="csharp">C#</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="typescript">TypeScript</option>
+                    </select>
+                </div>
+
+                <div class="editor-controls">
+                    <button id="btn-run" class="btn btn-run">
+                        <span class="btn-icon">▶</span> Run Code
+                    </button>
+                    <button id="btn-submit" class="btn btn-submit">
+                        <span class="btn-icon">✓</span> Submit
+                    </button>
+                    <button id="btn-reset" class="btn btn-reset">
+                        <span class="btn-icon">↻</span> Reset
+                    </button>
+                    <button id="btn-hint" class="btn btn-hint">
+                        <span class="btn-icon">💡</span> Hint
+                    </button>
+                </div>
+            </div>
+
+            <!-- Code Editor -->
+            <div class="code-editor-wrapper">
+                <textarea id="code-editor" class="code-editor" placeholder="Write your code here..."></textarea>
+                <div id="line-numbers" class="line-numbers"></div>
+            </div>
+
+            <!-- Editor Footer with Stats -->
+            <div class="editor-footer">
+                <div class="editor-stats">
+                    <span id="char-count">Characters: 0</span>
+                    <span id="line-count">Lines: 1</span>
+                </div>
+                <div class="editor-mode">
+                    <label>
+                        <input type="checkbox" id="dark-mode-toggle" />
+                        Dark Mode
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback and Output Section -->
+        <section class="feedback-section">
+            <div class="feedback-header">
+                <h3>Output & Feedback</h3>
+                <div class="feedback-tabs">
+                    <button class="tab-btn active" data-tab="output">Output</button>
+                    <button class="tab-btn" data-tab="test-results">Test Results</button>
+                    <button class="tab-btn" data-tab="submissions">Submissions</button>
+                </div>
+            </div>
+
+            <!-- Output Tab -->
+            <div id="output" class="feedback-content active">
+                <div class="output-container">
+                    <div class="output-section">
+                        <h4>Console Output:</h4>
+                        <pre id="console-output" class="output-text">
+Click "Run Code" to execute your code...
+                        </pre>
+                    </div>
+                    <div class="output-section">
+                        <h4>Errors (if any):</h4>
+                        <pre id="error-output" class="output-text error">
+No errors
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Results Tab -->
+            <div id="test-results" class="feedback-content">
+                <div class="test-results-container">
+                    <div id="test-cases" class="test-cases">
+                        <p class="placeholder">Run your code to see test results...</p>
+                    </div>
+                    <div class="test-summary" id="test-summary" style="display: none;">
+                        <div class="summary-stats">
+                            <span class="stat passed">
+                                <strong id="passed-count">0</strong> Passed
+                            </span>
+                            <span class="stat failed">
+                                <strong id="failed-count">0</strong> Failed
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submissions Tab -->
+            <div id="submissions" class="feedback-content">
+                <div class="submissions-container">
+                    <div id="submission-history" class="submission-history">
+                        <p class="placeholder">No submissions yet...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hint Modal -->
+    <div id="hint-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Hint</h2>
+            <div id="hint-text" class="hint-text">
+                <p>Loading hint...</p>
+            </div>
+            <button class="btn btn-primary" onclick="closeHintModal()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 CodeLearn. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#github">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
